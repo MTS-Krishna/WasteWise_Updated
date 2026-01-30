@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WasteWise ♻️ - Smart Waste Classifier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0e27;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            50% { transform: translateY(-100vh) translateX(50px) rotate(180deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s ease-out;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+            animation: titlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            animation: slideInLeft 0.6s ease-out both;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .file-upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-upload-area::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .file-upload-area:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .file-upload-area:hover {
+            background: linear-gradient(135deg, #f0f2ff 0%, #e8ebff 100%);
+            border-color: #764ba2;
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .file-upload-area.dragover {
+            background: linear-gradient(135deg, #e8ebff 0%, #dde3ff 100%);
+            border-color: #764ba2;
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .file-upload-area p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .file-upload-area p:last-child {
+            color: #666;
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            margin-top: 25px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .spinner {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner.active {
+            display: block;
+        }
+
+        .spinner::after {
+            content: "";
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(102, 126, 234, 0.1);
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results {
+            display: none;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            animation: cardFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        .metric-card h3 {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-card .value {
+            font-size: 3.5em;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin: 40px 0 25px 0;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
+        }
+
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        tbody tr {
+            animation: rowSlideIn 0.5s ease-out both;
+        }
+
+        @keyframes rowSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        tbody tr:nth-child(1) { animation-delay: 0.1s; }
+        tbody tr:nth-child(2) { animation-delay: 0.2s; }
+        tbody tr:nth-child(3) { animation-delay: 0.3s; }
+        tbody tr:nth-child(4) { animation-delay: 0.4s; }
+        tbody tr:nth-child(5) { animation-delay: 0.5s; }
+        tbody tr:nth-child(n+6) { animation-delay: 0.6s; }
+
+        tbody tr:hover {
+            background: linear-gradient(90deg, #f8f9ff 0%, #f0f2ff 100%);
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .chart-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .chart-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .chart-box h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        .bag-recipe {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInLeft 0.6s ease-out both;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .bag-recipe:nth-child(1) { animation-delay: 0.1s; }
+        .bag-recipe:nth-child(2) { animation-delay: 0.2s; }
+        .bag-recipe:nth-child(3) { animation-delay: 0.3s; }
+
+        .bag-recipe:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .bag-recipe h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .alert {
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            animation: slideDown 0.5s ease-out;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            color: #0c5460;
+            border: 2px solid #bee5eb;
+        }
+
+        .navigation {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .navigation a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
+
+        .navigation a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #667eea;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .navigation a:hover::before {
+            width: 80%;
+        }
+
+        .navigation a:hover {
+            color: #764ba2;
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        #fileName {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1em;
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>♻️ WasteWise: Smart Waste Classifier</h1>
+            <p>Upload a receipt or menu to classify waste and update a bin's fill level</p>
+        </div>
+
+        <div class="content">
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="binSelect">Select a waste bin for this upload:</label>
+                    <select id="binSelect" required>
+                        <option value="bin-A">Bin A</option>
+                        <option value="bin-B">Bin B</option>
+                        <option value="bin-C">Bin C</option>
+                        <option value="bin-D">Bin D</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload a file:</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <p>📄 Click or drag file here</p>
+                        <p>Supports: JPG, PNG, PDF, DOCX, TXT, CSV, JSON</p>
+                        <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.pdf,.docx,.txt,.csv,.json" style="display: none;" required>
+                    </div>
+                    <div id="fileName"></div>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn">
+                    <span>Process File & Classify Items</span>
+                </button>
+            </form>
+
+            <div class="spinner" id="spinner"></div>
+
+            <div id="errorMessage"></div>
+
+            <div class="results" id="results">
+                <div id="manifestInfo"></div>
+                
+                <h2 class="section-title">📋 Classification Results</h2>
+                <div class="table-container">
+                    <table id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Stream</th>
+                                <th>Recyclability</th>
+                                <th>Weight (kg)</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-box">
+                        <h3>📊 Recyclability Breakdown</h3>
+                        <canvas id="recyclabilityChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>📊 Waste Stream Distribution</h3>
+                        <canvas id="streamChart"></canvas>
+                    </div>
+                </div>
+
+                <h2 class="section-title">🛍️ Smart Bag Recipes</h2>
+                <div id="bagRecipes"></div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="/">Home</a>
+            <a href="/collector">Collector Feedback</a>
+            <a href="/ops">Operations Dashboard</a>
+            <a href="/credits">Credit System</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const BACKEND_URL = 'http://127.0.0.1:8000';
+        let recyclabilityChart = null;
+        let streamChart = null;
+
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const uploadForm = document.getElementById('uploadForm');
+        const spinner = document.getElementById('spinner');
+        const results = document.getElementById('results');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // File upload handling
+        fileUploadArea.addEventListener('click', () => fileInput.click());
+        fileUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.add('dragover');
+        });
+        fileUploadArea.addEventListener('dragleave', () => {
+            fileUploadArea.classList.remove('dragover');
+        });
+        fileUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                updateFileName();
+            }
+        });
+
+        fileInput.addEventListener('change', updateFileName);
+
+        function updateFileName() {
+            if (fileInput.files.length > 0) {
+                fileName.textContent = `✓ Selected: ${fileInput.files[0].name}`;
+                fileName.style.animation = 'fadeIn 0.5s ease-out';
+            } else {
+                fileName.textContent = '';
+            }
+        }
+
+        // Animate number counting
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const current = progress * (end - start) + start;
+                element.textContent = current.toFixed(2) + ' kg';
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('bin_id', document.getElementById('binSelect').value);
+
+            spinner.classList.add('active');
+            results.classList.remove('active');
+            errorMessage.innerHTML = '';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/process_file`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Processing failed');
+                }
+
+                const data = await response.json();
+                displayResults(data);
+                createSuccessParticles();
+
+            } catch (error) {
+                errorMessage.innerHTML = `<div class="alert alert-error">❌ Error: ${error.message}</div>`;
+            } finally {
+                spinner.classList.remove('active');
+                submitBtn.disabled = false;
+            }
+        });
+
+        function createSuccessParticles() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'fixed';
+                    particle.style.left = '50%';
+                    particle.style.top = '50%';
+                    particle.style.width = '8px';
+                    particle.style.height = '8px';
+                    particle.style.background = ['#667eea', '#764ba2', '#f093fb', '#4facfe'][Math.floor(Math.random() * 4)];
+                    particle.style.borderRadius = '50%';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.zIndex = '9999';
+                    particle.style.transform = 'translate(-50%, -50%)';
+                    
+                    const angle = (Math.PI * 2 * i) / 30;
+                    const velocity = 200 + Math.random() * 100;
+                    const x = Math.cos(angle) * velocity;
+                    const y = Math.sin(angle) * velocity;
+                    
+                    particle.style.animation = `particleExplode 1s ease-out forwards`;
+                    particle.style.setProperty('--x', x + 'px');
+                    particle.style.setProperty('--y', y + 'px');
+                    
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 1000);
+                }, i * 20);
+            }
+        }
+
+        // Add particle explosion animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleExplode {
+                to {
+                    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        function displayResults(data) {
+            const { classified_items, bag_recipes, manifest } = data;
+
+            // Display manifest info with animated counter
+            if (manifest) {
+                const binId = document.getElementById('binSelect').value;
+                const weightValue = manifest.total_weight_kg;
+                
+                document.getElementById('manifestInfo').innerHTML = `
+                    <div class="alert alert-success">
+                        <h3 style="font-size: 1.5em; margin-bottom: 20px;">✅ Waste Processed for Bin ${binId}</h3>
+                        <div class="metric-card">
+                            <h3>Predicted Waste Weight Added</h3>
+                            <div class="value" id="weightValue">0.00 kg</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Animate the weight counter
+                setTimeout(() => {
+                    const weightElement = document.getElementById('weightValue');
+                    animateValue(weightElement, 0, weightValue, 1500);
+                }, 300);
+            }
+
+            // Display classification results table
+            const tbody = document.getElementById('resultsTableBody');
+            tbody.innerHTML = '';
+            classified_items.forEach((item, index) => {
+                setTimeout(() => {
+                    const row = tbody.insertRow();
+                    row.style.animationDelay = (index * 0.05) + 's';
+                    row.innerHTML = `
+                        <td><strong>${item.item}</strong></td>
+                        <td><span style="padding: 5px 12px; background: #f0f2ff; border-radius: 8px; font-weight: 600;">${item.category}</span></td>
+                        <td><span style="padding: 5px 12px; background: #e8ebff; border-radius: 8px; font-weight: 600;">${item.stream}</span></td>
+                        <td><span style="padding: 5px 12px; background: #dde3ff; border-radius: 8px; font-weight: 600;">${item.recyclability}</span></td>
+                        <td><strong>${item.weight_kg.toFixed(3)}</strong></td>
+                        <td>${item.note}</td>
+                    `;
+                }, index * 50);
+            });
+
+            // Create charts
+            setTimeout(() => {
+                createCharts(classified_items);
+                displayBagRecipes(bag_recipes);
+            }, classified_items.length * 50 + 200);
+
+            results.classList.add('active');
+        }
+
+        function createCharts(items) {
+            // Recyclability breakdown
+            const recyclabilityData = {};
+            items.forEach(item => {
+                recyclabilityData[item.recyclability] = (recyclabilityData[item.recyclability] || 0) + 1;
+            });
+
+            const recyclabilityCtx = document.getElementById('recyclabilityChart').getContext('2d');
+            if (recyclabilityChart) recyclabilityChart.destroy();
+            recyclabilityChart = new Chart(recyclabilityCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(recyclabilityData),
+                    datasets: [{
+                        data: Object.values(recyclabilityData),
+                        backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#ff6b6b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        animateRotate: true,
+                        duration: 2000
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Stream distribution
+            const streamData = {};
+            items.forEach(item => {
+                streamData[item.stream] = (streamData[item.stream] || 0) + 1;
+            });
+
+            const streamCtx = document.getElementById('streamChart').getContext('2d');
+            if (streamChart) streamChart.destroy();
+            streamChart = new Chart(streamCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(streamData),
+                    datasets: [{
+                        label: 'Count',
+                        data: Object.values(streamData),
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                        borderColor: '#667eea',
+                        borderWidth: 2,
+                        borderRadius: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        duration: 2000
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(102, 126, 234, 0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayBagRecipes(bagRecipes) {
+            const container = document.getElementById('bagRecipes');
+            container.innerHTML = '';
+
+            const colorMap = {
+                "Wet": "#1f78b4",
+                "Dry": "#33a02c",
+                "Recyclable": "#e31a1c",
+                "Unknown": "#ff7f00",
+                "Compost": "#6a3d9a",
+                "None": "#b15928"
+            };
+
+            bagRecipes.forEach((bag, index) => {
+                setTimeout(() => {
+                    const bagDiv = document.createElement('div');
+                    bagDiv.className = 'bag-recipe';
+                    bagDiv.style.borderLeftColor = colorMap[bag.stream] || '#667eea';
+                    bagDiv.style.animationDelay = (index * 0.1) + 's';
+
+                    let instructionsHtml = '<table style="width:100%; margin-top:15px; border-collapse: collapse;"><thead><tr style="background: rgba(102, 126, 234, 0.1);"><th style="padding: 12px; text-align: left;">Item</th><th style="padding: 12px; text-align: left;">Instruction</th></tr></thead><tbody>';
+                    bag.instructions.forEach(inst => {
+                        instructionsHtml += `<tr style="border-bottom: 1px solid #e0e0e0;"><td style="padding: 10px;">${inst.item}</td><td style="padding: 10px;">${inst.note}</td></tr>`;
+                    });
+                    instructionsHtml += '</tbody></table>';
+
+                    bagDiv.innerHTML = `
+                        <h4>Stream: ${bag.stream} | Bags Needed: ${bag.bag_count}</h4>
+                        ${instructionsHtml}
+                    `;
+                    container.appendChild(bagDiv);
+                }, index * 100);
+            });
+        }
+    </script>
+</body>
+</html>

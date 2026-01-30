@@ -1,0 +1,800 @@
+[
+  {
+    "timestamp": "2026-01-30T21:38:25.032023",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Pasta box",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Unknown",
+        "stream": "Unknown",
+        "recyclability": "None",
+        "note": "Classification failed. Check item before disposal.",
+        "weight_kg": 0.01
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T22:28:29.604030",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T22:29:14.557029",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T22:57:20.127567",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.5
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.2
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.3
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T23:35:49.523956",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.5
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.2
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.3
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T23:37:27.224490",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.5
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.2
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.3
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T23:37:30.523865",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.5
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.2
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.3
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T23:37:33.364662",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Apples",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Chicken Breasts lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Milk gallon",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Bread loaves",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.5
+      },
+      {
+        "item": "Eggs dozen",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Cereal box",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten the box.",
+        "weight_kg": 0.07
+      },
+      {
+        "item": "Salad Mix lbag",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.2
+      },
+      {
+        "item": "Pasta box",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.3
+      },
+      {
+        "item": "Tomatoes lbs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Yogurt cups",
+        "category": "Plastic",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse thoroughly.",
+        "weight_kg": 0.008
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-30T23:39:00.265114",
+    "bin_id": "bin-A",
+    "items": [
+      {
+        "item": "Large Eggs",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Milk",
+        "category": "PET",
+        "stream": "Recyclable",
+        "recyclability": "High",
+        "note": "Rinse before disposal.",
+        "weight_kg": 0.05
+      },
+      {
+        "item": "Cottage cheese",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Natural Yogurt",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Cherry Tomatoes b",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.8
+      },
+      {
+        "item": "Bananas b",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 1.0
+      },
+      {
+        "item": "Aubergine",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Cheese Crackers",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Chocolate cookies",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Canned Tuna pk",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Chicken Breast",
+        "category": "Compost",
+        "stream": "Wet",
+        "recyclability": "High",
+        "note": "Dispose in compost bin.",
+        "weight_kg": 0.7
+      },
+      {
+        "item": "Toilet Paper",
+        "category": "Paper",
+        "stream": "Dry",
+        "recyclability": "High",
+        "note": "Flatten before disposal.",
+        "weight_kg": 0.1
+      },
+      {
+        "item": "Baby Wipes",
+        "category": "Other",
+        "stream": "None",
+        "recyclability": "Low",
+        "note": "Check item before disposal.",
+        "weight_kg": 0.1
+      }
+    ]
+  }
+]

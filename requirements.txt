@@ -1,0 +1,21 @@
+# Core Backend Frameworks
+fastapi
+uvicorn
+
+# HTTP Clients for API calls
+httpx
+requests
+
+# Data Processing and Visualization
+pandas
+matplotlib
+
+# File Handling and OCR
+python-docx
+PyPDF2
+pytesseract
+Pillow
+
+# Other Utilities
+qrcode[pil]
+python-multipart

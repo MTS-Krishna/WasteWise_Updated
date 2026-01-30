@@ -1,0 +1,65 @@
+{
+  "milk": {
+    "category": "PET",
+    "stream": "Recyclable",
+    "recyclability": "High",
+    "note": "Rinse before disposal.",
+    "weight_kg": 0.05
+  },
+  "water bottle": {
+    "category": "PET",
+    "stream": "Recyclable",
+    "recyclability": "High",
+    "note": "Rinse & flatten.",
+    "weight_kg": 0.02
+  },
+  "cereal box": {
+    "category": "Paper",
+    "stream": "Dry",
+    "recyclability": "High",
+    "note": "Flatten the box.",
+    "weight_kg": 0.07
+  },
+  "soda can": {
+    "category": "Metal",
+    "stream": "Recyclable",
+    "recyclability": "High",
+    "note": "Rinse.",
+    "weight_kg": 0.015
+  },
+  "pickle jar": {
+    "category": "Glass",
+    "stream": "Recyclable",
+    "recyclability": "High",
+    "note": "Rinse & remove lid.",
+    "weight_kg": 0.25
+  },
+  "yogurt cup": {
+    "category": "Plastic",
+    "stream": "Recyclable",
+    "recyclability": "High",
+    "note": "Rinse thoroughly.",
+    "weight_kg": 0.008
+  },
+  "potato chips": {
+    "category": "MLP",
+    "stream": "None",
+    "recyclability": "None",
+    "note": "Dispose as mixed waste.",
+    "weight_kg": 0.005
+  },
+  "banana peel": {
+    "category": "Compost",
+    "stream": "Wet",
+    "recyclability": "High",
+    "note": "Dispose in compost bin.",
+    "weight_kg": 0.12
+  },
+  "apple core": {
+    "category": "Compost",
+    "stream": "Wet",
+    "recyclability": "High",
+    "note": "Dispose in compost bin.",
+    "weight_kg": 0.01
+  }
+}
