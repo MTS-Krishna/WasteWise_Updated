@@ -239,11 +239,7 @@ The system intelligently estimates weights by:
 
 ## 📝 License
 
-[Add your license information here]
-
-## 👥 Contributors
-
-[Add contributor information here]
+MIT License
 
 ## 📧 Support
 
